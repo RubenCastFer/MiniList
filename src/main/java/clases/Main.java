@@ -7,5 +7,29 @@ public class Main {
     
     public static void main (String [] args) {
     	
+    	Persona person = new Persona(20,"Rubén","2548598741L");
+    	Persona person2 = new Persona(20,"Rubén","2548598741L");
+    	
+    	MiniList lista = new MiLista();
+    	
+    	lista.add(person);
+    	lista.add(person);
+    	lista.add(person);
+    	lista.add("a");
+    	lista.add(person2);
+    	
+    	
+    	
+    	if(lista.get(3)==person)
+    		System.out.println("Son iguales");
+    	else
+    		System.out.println("Son diferentes");
+    	
+    	if(lista.get(3)==person2)
+    		System.out.println("Son iguales");
+    	else
+    		System.out.println("Son diferentes");
+    		
+    		
     }
 }
