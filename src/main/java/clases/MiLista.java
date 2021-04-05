@@ -14,22 +14,23 @@ public class MiLista implements MiniList{
 		
 		boolean retorno=true;
 		try {
-			if (a instanceof Persona) {
+			if (a != null) {
 				Container nuevo = new Container();
 			    nuevo.obj=a;
 			    if (lista == null){
-			    lista = nuevo;
+				    lista = nuevo;
+				    contador++;
 			    }
 			    else {
 			    	Container actual = lista;
-			        while (actual.getNext()!= null){
-			            actual = actual.getNext();			            
+			        while (actual.next != null){
+			            actual = actual.next;			            
 			        }
-			        actual.setNext(nuevo);
+			        actual.next = nuevo;
 			        contador++;
 			    }			   
 			}else
-				throw new NullPointerException("No se admiten nulos");
+				throw new NullPointerException();
 		}catch (NullPointerException e) {
 			System.out.println("No se admiten nulos");
 			retorno =false;
@@ -59,13 +60,13 @@ public class MiLista implements MiniList{
 		Object informacion=null;
 		while( i< posicion) {
 			
-			actual = actual.getNext();
+			actual = actual.next;
 			i++;
 			 
 	            
 			
 		}
-		informacion = actual.getObj();
+		informacion = actual.obj;
 		return informacion;
 		
 	    
@@ -76,28 +77,10 @@ public class MiLista implements MiniList{
 		
 		Object obj = null;
 		Container next = null;
-		private int id;
+		//private int id;
 		
-		
+		//quitar metodos
 
-		public Object getObj() {
-			return obj;
-		}
-		public void setObj(Object obj) {
-			this.obj = obj;
-		}
-		public Container getNext() {
-			return next;
-		}
-		public void setNext(Container next) {
-			this.next = next;
-		}
-		public int getId() {
-			return id;
-		}
-		public void setId(int id) {
-			this.id = id;
-		}
 		
 	}
 

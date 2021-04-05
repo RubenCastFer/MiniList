@@ -20,12 +20,17 @@ public class Main {
     	
     	
     	
-    	if(lista.get(3)==person)
+    	if(lista.get(4)==person)
     		System.out.println("Son iguales");
     	else
     		System.out.println("Son diferentes");
     	
-    	if(lista.get(3)==person2)
+    	if(lista.get(4)==person2)
+    		System.out.println("Son iguales");
+    	else
+    		System.out.println("Son diferentes");
+    	
+    	if(lista.get(2)==person2)
     		System.out.println("Son iguales");
     	else
     		System.out.println("Son diferentes");
