@@ -20,7 +20,7 @@ public class Main {
     	
     	
     	
-    	if(lista.get(4)==person)
+    	/*if(lista.get(4)==person)
     		System.out.println("Son iguales");
     	else
     		System.out.println("Son diferentes");
@@ -30,11 +30,32 @@ public class Main {
     	else
     		System.out.println("Son diferentes");
     	
-    	if(lista.get(2)==person2)
+    	if(lista.contains(person2)==true)
     		System.out.println("Son iguales");
     	else
     		System.out.println("Son diferentes");
-    		
-    		
+    	*/
+    	
+    	((MiLista) lista).lista();
+    	System.out.println("---------------");
+    	System.out.println(lista.contains(person));
+    	lista.delete(person);
+    	System.out.println("---------------");
+
+    	((MiLista)lista).lista();
+    	lista.set(person2, 1);
+    	System.out.println("---------------");
+
+    	((MiLista)lista).lista();
+    	
+    	System.out.println(lista.size());
+    	
+    	lista.clear();
+    	((MiLista)lista).lista();
+    	
+    	System.out.println(lista.size());
+    	
+
+    	
     }
 }

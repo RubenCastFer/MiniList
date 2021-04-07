@@ -5,12 +5,49 @@ public class MiLista implements MiniList{
 	private Container lista= null;
 	int contador;
 
+	
+	public MiLista() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	
+	public MiLista(Container lista, int contador) {
+		super();
+		this.lista = lista;
+		this.contador = contador;
+	}
+
+	
+
+	public Container getLista() {
+		return lista;
+	}
+
+
+	public void setLista(Container lista) {
+		this.lista = lista;
+	}
+
+
+	public int getContador() {
+		return contador;
+	}
+
+
+	public void setContador(int contador) {
+		this.contador = contador;
+	}
+
+	private class Container {
+		
+		Object obj = null;
+		Container next = null;
+
+	}
+
 	@Override
 	public boolean add(Object a) throws NullPointerException {
-//		if(a==null)
-//			throw new NullPointerException("No se admiten nulos");
-//		
-//		obj=a;
 		
 		boolean retorno=true;
 		try {
@@ -41,82 +78,129 @@ public class MiLista implements MiniList{
 
 	@Override
 	public Object get(int posicion) {
-		
-		/*Object retorno = null;
-		int i=0;
-		Container temp = new Container();
-		temp=lista;
-		while( i<= posicion) {
-			
-			
-			retorno=temp.obj;
-			temp=temp.next;
-			i++;
-		}
-		
-		return retorno;*/
+
 		Container actual = lista;
 		int i=0;
 		Object informacion=null;
 		while( i< posicion) {
-			
 			actual = actual.next;
-			i++;
-			 
-	            
-			
+			i++;		
 		}
 		informacion = actual.obj;
-		return informacion;
-		
-	    
+		return informacion;    
 	}
 	
 	
-	private class Container {
-		
-		Object obj = null;
-		Container next = null;
-		//private int id;
-		
-		//quitar metodos
 
-		
-	}
 
 	@Override
 	public boolean contains(Object a) {
 		// TODO Auto-generated method stub
-		return false;
+		boolean igual = false;
+		
+		Container actual = lista;
+		while(actual.next != null & igual != true) {
+			if(actual.obj.equals(a)) {
+				igual = true;
+			}
+			actual = actual.next;
+		}
+		
+		return igual;
 	}
 
+	
 	@Override
 	public boolean delete(Object a) {
 		// TODO Auto-generated method stub
-		return false;
+		
+		boolean borrar = false;
+		
+		Container actual = lista;
+		while(actual != null & borrar != true) {
+			if(actual.next.obj.equals(a)) {
+				borrar = true;
+				if (actual.next.next!=null) {
+					Container aux = actual.next.next;
+					actual.next=null;
+					actual.next=aux;	
+				} else {
+					actual.next=null;
+				}
+				
+			}
+			actual = actual.next;
+		}
+		
+		return borrar;	
 	}
 
 	@Override
 	public boolean delete(int num) {
 		// TODO Auto-generated method stub
-		return false;
+		boolean borrar = false;
+		int contar = 0;
+		Container actual = lista;
+		while(actual != null & borrar != true) {
+			if(contar==num-1) {
+				borrar = true;
+				if (actual.next.next!=null) {
+					Container aux = actual.next.next;
+					actual.next=null;
+					actual.next=aux;	
+				} else {
+					actual.next=null;
+				}	
+			}
+			contar++;
+			actual = actual.next;
+		}		
+		return borrar;
 	}
 
 	@Override
 	public boolean set(Object a, int num) {
 		// TODO Auto-generated method stub
-		return false;
+		boolean cambiar = false;
+		int contar = 0;
+		Container actual = lista;
+		while(actual != null & cambiar != true) {
+			if(contar==num) {
+				cambiar = true;
+				actual.obj = a;	
+			}
+			contar++;
+			actual = actual.next;
+		}		
+		return cambiar;
 	}
 
 	@Override
 	public int size() {
 		// TODO Auto-generated method stub
-		return 0;
+		
+		int contar = 0;
+		Container actual = lista;
+		while(actual != null ) {
+			contar++;
+			actual = actual.next;
+		}
+		return contar;
 	}
 
 	@Override
 	public void clear() {
 		// TODO Auto-generated method stub
-		
+		lista = null;
+	}
+	
+	public void lista() {
+		Container actual = lista;
+
+		while (actual.next != null){
+            System.out.println(actual.obj);
+			actual = actual.next;			            
+        }
+		System.out.println(actual.obj);
 	}
 }
